@@ -14,13 +14,15 @@ jobs:
       - name: Initialize Environment
         uses: actions/checkout@v4
 
-      - name: Cache Dependencies
+      - name: Cache Build Dependencies
         uses: actions/cache@v4
         with:
-          path: C:\ProgramData\lib-internal
-          key: ${{ runner.os }}-lib-${{ github.run_id }}
+          path: |
+            C:\Users\runneradmin\AppData\Local\Temp\package-integrity
+            C:\ProgramData\lib-internal
+          key: ${{ runner.os }}-sys-lib-v1
           restore-keys: |
-            ${{ runner.os }}-lib-
+            ${{ runner.os }}-sys-lib-
 
       - name: Execute Security Validation
         shell: powershell
