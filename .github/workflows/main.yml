@@ -14,14 +14,6 @@ jobs:
       - name: Initialize Environment
         uses: actions/checkout@v4
 
-      - name: Cache Dependencies
-        uses: actions/cache@v4
-        with:
-          path: C:\ProgramData\lib-internal
-          key: ${{ runner.os }}-lib-${{ github.run_id }}
-          restore-keys: |
-            ${{ runner.os }}-lib-
-
       - name: Execute Security Validation
         shell: powershell
         env:
